@@ -1,5 +1,10 @@
 _doc = """
 杨辉三角1:
+给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
+
+注：在杨辉三角中，每个数是它左上方和右上方的数的和。
+
+例：
 输入: 5
 输出:
 [
@@ -30,3 +35,6 @@ def generator(num_rows):
             lst.append(1)
             ans.append(lst)
         return ans
+
+
+print(generator(5))
