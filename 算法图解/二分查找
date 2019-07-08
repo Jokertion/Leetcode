@@ -1,0 +1,18 @@
+def binary_search(lst, aim):
+    left = 0  # 左边下标
+    right = len(lst) - 1  # 右边下标
+    while left <= right:
+        mid = (left + right) // 2
+        guess = lst[mid]
+        if guess == aim:
+            return mid
+        elif guess < aim:
+            left = mid + 1
+        else:
+            right = mid - 1
+    else:
+        return None
+
+
+a = binary_search([1, 2, 3, 4, 5, 6, 7, 8, 9], 10)
+print(a)
