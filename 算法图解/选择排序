@@ -1,0 +1,20 @@
+def find_smallest(lst):
+    smallest_value = lst[0]
+    smallest_index = 0
+    for i, v in enumerate(lst):
+        if v < smallest_value:
+            smallest_value = v
+            smallest_index = i
+    return smallest_index
+
+
+def selection_sort(arr):
+    sorted_arr = []
+    for i in range(len(arr)):
+        smallest_index = find_smallest(arr)
+        sorted_arr.append(arr.pop(smallest_index))
+    return sorted_arr
+
+
+arr = [6, 4, 9, 2, 1, 8, 5]
+print(selection_sort(arr))
