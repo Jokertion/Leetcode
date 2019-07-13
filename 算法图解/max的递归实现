@@ -1,0 +1,19 @@
+def max_recursive(lst):
+    """
+    max的递归实现
+    :param lst: 
+    :return: max(lst)
+    """
+    if len(lst) == 0:
+        return None
+    if len(lst) == 1:
+        return lst[0]
+    if len(lst) == 2:
+        return lst[0] if lst[0] > lst[1] else lst[1]
+    sub_lst = lst[1:]
+    return lst[0] if lst[0] > max_recursive(sub_lst) else max_recursive(sub_lst)
+
+
+print(max_recursive([]))
+print(max_recursive([1]))
+print(max_recursive([1, 2, 3, 4, 5]))
