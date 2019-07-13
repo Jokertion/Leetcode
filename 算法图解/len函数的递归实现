@@ -1,0 +1,12 @@
+def len_recursive(lst):
+    """
+    len函数的递归实现
+    :param lst:
+    :return:  len(lst)
+    """
+    if lst == []:
+        return 0
+    return 1 + len_recursive(lst[1:])
+
+
+print(len_recursive([1, 2, 3, 4, 5]))
