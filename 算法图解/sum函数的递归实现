@@ -1,0 +1,14 @@
+def count_total(lst):
+    """
+    sum函数的递归实现
+    :param lst:
+    :return:
+    """
+    if len(lst) == 0:
+        return 0
+    elif len(lst) == 1:
+        return lst[0]
+    return lst[0] + count_total(lst[1:])
+
+
+print(count_total([1, 2, 3, 4, 5]))
