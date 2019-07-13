@@ -1,4 +1,4 @@
-def count_total(lst):
+def sum_recursive(lst):
     """
     sum函数的递归实现
     :param lst:
@@ -8,7 +8,7 @@ def count_total(lst):
         return 0
     elif len(lst) == 1:
         return lst[0]
-    return lst[0] + count_total(lst[1:])
+    return lst[0] + sum_recursive(lst[1:])
 
 
-print(count_total([1, 2, 3, 4, 5]))
+print(sum_recursive([1, 2, 3, 4, 5]))
