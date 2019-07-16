@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from collections import deque
+
+
+def search(name):
+    search_queue = deque()
+    search_queue += graph[name]
+    run = []
+    while search_queue is not None:
+        person = search_queue.popleft()
+        if person not in run:
+            if person_is_seller(person):
+                print(person + 'is sellor')
+                return True
+        else:
+            search_queue += graph[person]
+            run.append(person)
+    return False
+
+
+def person_is_seller(person):
+    return person[-1] == 'k'
+
+
+search('you')
