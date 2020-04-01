@@ -13,32 +13,21 @@ _doc = """
 
 
 class Solution(object):
-
     def moveZeroes(self, nums):
         """
-        执行用时 : 36 ms, 在Move Zeroes的Python提交中击败了98.89% 的用户
-        内存消耗 : 12.7 MB, 在Move Zeroes的Python提交中击败了31.86% 的用户
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
         """
-        # 思路：将最前面的0，交换到当前非0元素处
-        # index: 最前面的0的下标
-        index = 0
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                if index < i:
-                    nums[index] = nums[i]
-                    nums[i] = 0
-                index += 1
+        # # 双指针
+        # zero = 0
+        # for i in range(len(nums)):
+        #     if nums[i] != 0:
+        #         nums[i], nums[zero] = nums[zero], nums[i]
+        #         zero += 1
+        # return nums
+
+        # count: 0, list: non 0, list+[0]*count
+        count = nums.count(0)
+        nums[:] = [i for i in nums if i]
+        nums += [0] * count
         return nums
-    
-    def moveZeroes2(self, nums):
-            """
-            执行用时 : 92 ms, 在Move Zeroes的Python提交中击败了33.46% 的用户
-            内存消耗 : 12.7 MB, 在Move Zeroes的Python提交中击败了35.10% 的用户
-            """
-            # 思路：统计0的个数，删除0后，再扩展列表相同个0
-            n = nums.count(0)
-            for i in range(n):
-                nums.remove(0)
-            add_zero = [0] * n
-            nums.extend(add_zero)
-            return nums
